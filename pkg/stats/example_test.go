@@ -35,7 +35,7 @@ func ExampleAvg()  {
 
 
 		// Output:
-		// 10000
+		// 15000
 
 }
 
@@ -73,6 +73,6 @@ func ExampleTotalInCategory()  {
 	
 	fmt.Println(TotalInCategory(payments, "Cafe"))
 		// Output:
-		// 25000
+		// 35000
 
 }
