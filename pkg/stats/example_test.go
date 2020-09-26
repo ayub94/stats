@@ -2,7 +2,7 @@ package stats
 
 import (
 	"fmt"
-	"github.com/ayub94/bank/pkg/types"
+	"github.com/ayub94/bank/v2/pkg/types"
 )
 
 func ExampleAvg()  {
@@ -13,16 +13,20 @@ func ExampleAvg()  {
 			ID:          1234,
 			Amount:      5000,
 			Category:    "Cat",
+			Status:      "Ok",
+		
 		},
 		{
 			ID:           2345,
 			Amount:       10_000,
 			Category:     "Cat",
+			Status:        "INPROGRESS",
 		},
 		{
 			ID:           3456,
 			Amount:       15_000,
 			Category:      "Cat",
+			Status:        "FAIL",
 		},
 
 	}
@@ -45,21 +49,25 @@ func ExampleTotalInCategory()  {
 			ID:          1234,
 			Amount:      5000,
 			Category:    "Shopping",
+			Status:       "Ok",
 		},
 		{
 			ID:           2345,
 			Amount:       10_000,
 			Category:     "Cafe",
+			Status:         "FAIL",
 		},
 		{
 			ID:           3456,
 			Amount:       15_000,
 			Category:      "Restaurant",
+			Status:        "INPROGRESS",  
 		},
 		{
 			ID:           3456,
 			Amount:       15_000,
 			Category:      "Cafe",
+			Status:        "Ok",
 		},
 	} 
 	
