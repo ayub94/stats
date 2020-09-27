@@ -12,33 +12,22 @@ func ExampleAvg()  {
 		{
 			ID:          1234,
 			Amount:      5_000,
-			Category:    "Cat",
 			Status:      types.StatusOk,
 		
 		},
 		{
 			ID:           2345,
 			Amount:       10_000,
-			Category:     "Cat",
 			Status:        types.StatusInProgress,
 		},
 		{
 			ID:           3456,
 			Amount:       15_000,
-			Category:      "Cat",
 			Status:        types.StatusFail,
 		},
 		{
 			ID:          4567,
-			Amount:      -5_000,
-			Category:    "Cat",
-			Status:      types.StatusOk,
-		
-		},
-		{
-			ID:          4567,
 			Amount:      15_000,
-			Category:    "Cat",
 			Status:      types.StatusOk,
 		
 		},
@@ -83,13 +72,7 @@ func ExampleTotalInCategory()  {
 			Category:      "Cafe",
 			Status:        types.StatusOk,
 		},
-		{
-			ID:          4567,
-			Amount:      -5_000,
-			Category:    "Cafe",
-			Status:      types.StatusInProgress,
-		
-		},
+
 	} 
 	
 	fmt.Println(TotalInCategory(payments, "Cafe"))

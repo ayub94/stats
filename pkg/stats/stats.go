@@ -7,21 +7,19 @@ import (
 
 func Avg(payments []types.Payment) types.Money  {
 	
-	averagesum := types.Money(0)
-	sum := types.Money(0)
+	averagesum := 0
+	sum := 0
 	l := 0
+
 	for _, payment := range payments {
 		if payment.Status == types.StatusOk || payment.Status == types.StatusInProgress {
-			if payment.Amount > 0 {
 			    l+=1
-	            sum += payment.Amount
-				averagesum = sum / (types.Money(l))
-			}
+	            sum += int(payment.Amount)			
 		}
 	
 	}
-
-	return averagesum
+    averagesum = sum / l
+	return types.Money(averagesum)
 }
 
 func TotalInCategory(payments []types.Payment, category types.Category) types.Money  {
@@ -29,9 +27,9 @@ func TotalInCategory(payments []types.Payment, category types.Category) types.Mo
 	for _, payment := range payments{
 		if payment.Category== category {
 			if payment.Status == types.StatusOk || payment.Status == types.StatusInProgress {
-				if payment.Amount > 0 {
-			          summincategory += payment.Amount
-				}
+			
+			      summincategory += payment.Amount
+			
 			}
 		}
 		
