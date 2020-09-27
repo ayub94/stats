@@ -33,8 +33,7 @@ func ExampleAvg()  {
 		},
 
 	}
-	result := Avg(payments)
-		fmt.Println(result)
+		fmt.Println(Avg(payments))
 
 
 		// Output:
