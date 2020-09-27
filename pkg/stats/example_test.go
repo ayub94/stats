@@ -11,7 +11,7 @@ func ExampleAvg()  {
 
 		{
 			ID:          1234,
-			Amount:      5000,
+			Amount:      5_000,
 			Category:    "Cat",
 			Status:      "Ok",
 		
@@ -35,7 +35,7 @@ func ExampleAvg()  {
 
 
 		// Output:
-		// 15000
+		// 7500
 
 }
 
@@ -55,7 +55,7 @@ func ExampleTotalInCategory()  {
 			ID:           2345,
 			Amount:       10_000,
 			Category:     "Cafe",
-			Status:         "FAIL",
+			Status:       "FAIL",
 		},
 		{
 			ID:           3456,
@@ -73,6 +73,6 @@ func ExampleTotalInCategory()  {
 	
 	fmt.Println(TotalInCategory(payments, "Cafe"))
 		// Output:
-		// 35000
+		// 15000
 
 }
