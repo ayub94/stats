@@ -49,8 +49,8 @@ func ExampleTotalInCategory()  {
 
 		{
 			ID:          1234,
-			Amount:      5_000,
-			Category:    "Shopping",
+			Amount:      10_000,
+			Category:    "Cafe",
 			Status:       types.StatusOk,
 		},
 		{
@@ -76,6 +76,6 @@ func ExampleTotalInCategory()  {
 	
 	fmt.Println(TotalInCategory(payments, "Cafe"))
 		// Output:
-		// 20000
+		// 30000
 
 }
