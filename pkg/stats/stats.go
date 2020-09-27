@@ -16,7 +16,6 @@ func Avg(payments []types.Payment) types.Money  {
 			    l+=1
 	            sum += payment.Amount
 		}
-		
 		averagesum = sum / (types.Money(l))
 	}
 
