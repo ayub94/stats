@@ -13,26 +13,33 @@ func ExampleAvg()  {
 			ID:          1234,
 			Amount:      5_000,
 			Category:    "Cat",
-			Status:      "Ok",
+			Status:      types.StatusOk,
 		
 		},
 		{
 			ID:           2345,
 			Amount:       10_000,
 			Category:     "Cat",
-			Status:        "INPROGRESS",
+			Status:        types.StatusInProgress,
 		},
 		{
 			ID:           3456,
 			Amount:       15_000,
 			Category:      "Cat",
-			Status:        "FAIL",
+			Status:        types.StatusFail,
 		},
 		{
 			ID:          4567,
 			Amount:      -5_000,
 			Category:    "Cat",
-			Status:      "Ok",
+			Status:      types.StatusOk,
+		
+		},
+		{
+			ID:          4567,
+			Amount:      15_000,
+			Category:    "Cat",
+			Status:      types.StatusOk,
 		
 		},
 
@@ -42,7 +49,7 @@ func ExampleAvg()  {
 
 
 		// Output:
-		// 7500
+		// 10000
 
 }
 
@@ -54,33 +61,33 @@ func ExampleTotalInCategory()  {
 
 		{
 			ID:          1234,
-			Amount:      5000,
+			Amount:      5_000,
 			Category:    "Shopping",
-			Status:       "Ok",
+			Status:       types.StatusOk,
 		},
 		{
 			ID:           2345,
 			Amount:       10_000,
 			Category:     "Cafe",
-			Status:       "FAIL",
+			Status:       types.StatusFail,
 		},
 		{
 			ID:           3456,
 			Amount:       15_000,
 			Category:      "Restaurant",
-			Status:        "INPROGRESS",  
+			Status:        types.StatusInProgress,  
 		},
 		{
 			ID:           3456,
 			Amount:       20_000,
 			Category:      "Cafe",
-			Status:        "Ok",
+			Status:        types.StatusOk,
 		},
 		{
 			ID:          4567,
 			Amount:      -5_000,
 			Category:    "Cafe",
-			Status:      "Ok",
+			Status:      types.StatusInProgress,
 		
 		},
 	} 
