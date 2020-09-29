@@ -4,35 +4,46 @@ import (
 	"github.com/ayub94/bank/v2/pkg/types"
 
 )
+//Avg func return average amount from slice Payment
+func Avg(payments []types.Payment) types.Money {
+  var sum types.Money
+  i := 0
+  for _, v := range payments {
+    if v.Status == types.StatusFail {
+      continue
+    }
+    sum += v.Amount
+    i++
+  }
+  return sum / types.Money(i)
+}
+//CategoriesAvg func
+func CategoriesAvg(payments []types.Payment) ( map[types.Category]types.Money) {
 
-// FilteredByCategory возврашает платежи в указаной категории
+  mp := make(map[types.Category]types.Money)
+  for _, v := range payments {
+
+    if _, er := mp[v.Category]; er {
+      continue
+    }
+    filtered := FilterByCategory(payments, v.Category)
+    mp[v.Category]=Avg(filtered)
+  }
+
+
+  return mp
+}
+
+
+//FilterByCategory func
 func FilterByCategory(payments []types.Payment, category types.Category) []types.Payment{
 
-	var filtered []types.Payment
-	
-	for _, payment := range payments {
-	  if payment.Category == category {
-		  filtered = append(filtered, payment)
-	  }
-		
-	}
+  var filtered []types.Payment
 
-return filtered
-
+  for _, v := range payments {
+    if v.Category == category {
+      filtered = append(filtered, v)
+    }
+  }
+  return filtered
 }
-// CategoryAvg counts the avarage sum of categories
-func CategoriesAvg(payments []types.Payment) map [types.Category]types.Money  {
-  categories := map [types.Category] types.Money {}
-  count := map [types.Category] types.Money {}
-
-	  for _, payment := range payments{
-		  if payment.Status != types.StatusFail {
-				  categories [payment.Category] += payment.Amount
-				  count [payment.Category] ++		  
-		  }
-		for key := range categories {
-			categories[key] /= count[key]
-		}  
-	  }	
-		return categories
- }

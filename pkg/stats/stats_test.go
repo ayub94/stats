@@ -27,6 +27,8 @@ func TestFilterByCategory_NotFound(t *testing.T) {
 			{ID: 3,  Category: "auto"},
 			{ID: 4,  Category: "fun"},
 			{ID: 5,  Category: "auto"},
+			{ID: 6,  Category: "auto"},
+			{ID: 7,  Category: "auto"},
 		}
 		result := FilterByCategory(payments, "mobile")
 		 if len(result) !=0 {
@@ -71,16 +73,19 @@ func TestFilterByCategory_FoundSeveral(t *testing.T) {
  
 func TestCategoriesAvgUser(t *testing.T) {
 	payments := []types.Payment {
-		{ID:1, Category: "auto", Amount: 1_000_00},
-		{ID:2, Category: "mobile", Amount: 2_000_00},
-		{ID:3, Category: "fun", Amount: 3_000_00},
-		{ID:4, Category: "auto", Amount: 4_000_00},
-		{ID:5, Category: "fun", Amount: 5_000_00},
+		{ID:1, Category: "auto", Amount: 1_000},
+		{ID:2, Category: "mobile", Amount: 2_000},
+		{ID:3, Category: "fun", Amount: 3_000},
+		{ID:4, Category: "auto", Amount: 4_000},
+		{ID:5, Category: "fun", Amount: 5_000},
+		{ID:6, Category: "fun", Amount: 5_000},
+		{ID:7, Category: "mobile", Amount: 4_000},
+
 	}
 	expected := map [types.Category]types.Money{
-		"auto":  1_250_00,
-		"mobile":  2_000_00,
-		"fun":  4_000_00,
+		"auto":  2_500,
+		"mobile":  3_000,
+		"fun":  4333,
 	}
 	result := CategoriesAvg(payments)
 	if !reflect.DeepEqual(expected, result){
