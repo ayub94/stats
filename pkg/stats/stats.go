@@ -5,30 +5,34 @@ import (
 
 )
 
-func Avg(payments []types.Payment) types.Money  {
-	
-	sum := types.Money(0)
-	l := 0
-	for _, payment := range payments {
-		if payment.Status != types.StatusFail {
-		    sum += payment.Amount
-	        l++
-	    }
-	}
-	
-    
-	return sum / (types.Money(l))
-}
+// FilteredByCategory возврашает платежи в указаной категории
+func FilterByCategory(payments []types.Payment, category types.Category) []types.Payment{
 
-func TotalInCategory(payments []types.Payment, category types.Category) types.Money  {
-	summincategory := types.Money(0)
-	for _, payment := range payments{
-		if payment.Category== category {
-			if payment.Status != types .StatusFail {
-			         summincategory += payment.Amount
-			}
-		}
+	var filtered []types.Payment
+	
+	for _, payment := range payments {
+	  if payment.Category == category {
+		  filtered = append(filtered, payment)
+	  }
 		
 	}
-	return summincategory
+
+return filtered
+
 }
+// CategoryAvg counts the avarage sum of categories
+func CategoriesAvg(payments []types.Payment) map [types.Category]types.Money  {
+  categories := map [types.Category] types.Money {}
+  count := map [types.Category] types.Money {}
+
+	  for _, payment := range payments{
+		  if payment.Status != types.StatusFail {
+				  categories [payment.Category] += payment.Amount
+				  count [payment.Category] ++		  
+		  }
+		for key := range categories {
+			categories[key] /= count[key]
+		}  
+	  }	
+		return categories
+ }
